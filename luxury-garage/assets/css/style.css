@@ -1,0 +1,729 @@
+/* * style.css
+ * Complete Stylesheet for Luxury Garage
+ * Includes: Base, Header, Hero, Professional Sections, Stock Status
+ */
+
+/* --- 1. BASE RESET --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #050509;
+    color: #f5f5f5;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- 2. HEADER & NAV --- */
+.site-header {
+    background-color: #0b0b10;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 75px;
+    display: flex;
+    align-items: center;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes Logo left, Menu right */
+    width: 100%;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.main-nav a {
+    opacity: 0.85;
+    transition: 0.15s ease;
+}
+
+.main-nav a:hover {
+    opacity: 1;
+    color: #ffb84d;
+}
+
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: 1px solid #444;
+    color: #f5f5f5;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- 3. PROFILE DROPDOWN --- */
+.header-profile {
+    position: relative;
+    margin-left: 2rem;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid #262638;
+    background: #10101a;
+    color: #f7f7ff;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.profile-trigger:hover {
+    border-color: #ff7043;
+}
+
+.profile-trigger-avatar {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff1744, #ff9100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.profile-trigger-name {
+    max-width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.9;
+}
+
+.profile-trigger-caret {
+    font-size: 0.65rem;
+    opacity: 0.8;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 0;
+    top: 130%;
+    min-width: 180px;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background: #10101a;
+    border: 1px solid #262638;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+    display: none;
+    z-index: 20;
+}
+
+.profile-dropdown.show {
+    display: block;
+}
+
+.profile-dropdown-label {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    display: block;
+}
+
+.profile-dropdown-user {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #fff;
+}
+
+.profile-dropdown hr {
+    border: none;
+    border-top: 1px solid #232334;
+    margin: 0.5rem 0;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 0.35rem 0;
+    font-size: 0.85rem;
+    color: #f7f7ff;
+}
+
+.profile-dropdown a:hover {
+    color: #ffb84d;
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    padding: 3rem 0 2rem;
+    background: radial-gradient(circle at top, #171725 0, #050509 55%);
+}
+
+.home-hero-bg {
+    position: relative;
+    padding-block: 7rem;
+    /* Ensure the path to your image is correct */
+    background-image: url('../images/home-gt3r.png'); 
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: #050509;
+}
+
+.home-hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(5, 5, 12, 0.98) 0%,
+        rgba(5, 5, 12, 0.92) 25%,
+        rgba(5, 5, 12, 0.55) 50%,
+        rgba(5, 5, 12, 0.10) 75%,
+        rgba(5, 5, 12, 0.0) 100%
+    );
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    max-width: 32rem;
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* Professional Hero Additions */
+.hero-badge {
+    background-color: rgba(255, 145, 0, 0.15);
+    color: #ff9100;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(255, 145, 0, 0.3);
+}
+
+.hero-specs {
+    display: flex;
+    gap: 2.5rem;
+    margin: 2rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.spec-label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Animation */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 5. SECTIONS & LAYOUT --- */
+.section {
+    padding: 3.5rem 0;
+}
+
+.section-dark {
+    background: linear-gradient(#050509, #050509 40%, #10101a);
+    border-top: 1px solid #161623;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-header.text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Two Columns Layout */
+.two-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    gap: 3rem;
+}
+
+/* --- 6. BRAND STRIP (NEW) --- */
+.brand-strip {
+    background-color: #0b0b10;
+    border-bottom: 1px solid #1f1f2e;
+    padding: 1.2rem 0;
+    overflow: hidden;
+}
+
+.brand-flex {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.brand-name {
+    color: #555;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.brand-name:hover {
+    color: #fff;
+}
+
+/* --- 7. CARDS & CATEGORIES --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    border-radius: 14px;
+    background-color: #101018;
+    padding: 1.5rem;
+    border: 1px solid #232338;
+}
+
+/* Professional Category Card Style */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #101018, #0a0a0f);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff9100;
+    box-shadow: 0 10px 30px rgba(255, 145, 0, 0.15);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 145, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 145, 0, 0.2);
+}
+
+.category-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.category-card p {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 0;
+}
+
+/* Standard Product/Build Cards */
+.product-image-placeholder,
+.build-image-placeholder {
+    height: 160px;
+    border-radius: 10px;
+    border: 1px dashed #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    background-color: #0b0b10;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+    font-weight: 700;
+}
+
+.product-category {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin: 0 0 0.5rem;
+    color: #aaa;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin: 0 0 1rem;
+    line-height: 1.4;
+    min-height: 40px; /* Keep cards aligned */
+}
+
+.product-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* --- 8. BUTTONS & ACTIONS --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, opacity 0.1s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff1744, #ff9100);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.35);
+}
+
+.btn-secondary {
+    background-color: #222233;
+    color: #f5f5f5;
+    border: 1px solid #444455;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Disabled State (New) */
+.btn-disabled {
+    background-color: #2a2a35;
+    color: #777;
+    cursor: not-allowed;
+    border: 1px solid #333;
+    box-shadow: none;
+    transform: none !important;
+}
+
+.btn-disabled:hover {
+    transform: none;
+    opacity: 1;
+}
+
+/* --- 9. STOCK STATUS & EXTRAS --- */
+.stock-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.text-success { color: #00e676; }
+.text-danger { color: #ff5252; }
+
+.bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bullet-list li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+}
+
+/* Trust Badge (New) */
+.trust-badge-container {
+    display: flex;
+    justify-content: center;
+}
+
+.trust-badge {
+    width: 160px;
+    height: 160px;
+    border: 4px solid #232338;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #050509;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* --- 10. FORMS & FILTERS --- */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #101018;
+    border-radius: 12px;
+    border: 1px solid #232338;
+}
+
+.filters input,
+.filters select {
+    background-color: #050509;
+    border: 1px solid #333344;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    min-width: 150px;
+}
+
+.login-hero {
+    padding-top: 2rem;
+}
+
+.login-card {
+    background-color: #101018;
+    border-radius: 16px;
+    border: 1px solid #232338;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.login-form input {
+    background-color: #050509;
+    border: 1px solid #333344;
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: #ff9100;
+}
+
+.login-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem;
+}
+
+.alert {
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: rgba(183, 28, 28, 0.2);
+    border: 1px solid #b71c1c;
+    color: #ff8a80;
+}
+
+.alert-success {
+    background-color: rgba(27, 94, 32, 0.2);
+    border: 1px solid #1b5e20;
+    color: #69f0ae;
+}
+
+/* --- 11. FOOTER --- */
+.site-footer {
+    border-top: 1px solid #181821;
+    padding: 2rem 0;
+    background-color: #050509;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0.3rem 0;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* --- 12. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .site-header {
+        height: 60px;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #0b0b10;
+        border-bottom: 1px solid #222;
+        padding: 1.5rem;
+        gap: 1.5rem;
+        text-align: center;
+        display: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .header-profile {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-specs {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .brand-flex {
+        gap: 1.5rem;
+    }
+}
