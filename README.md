@@ -4,8 +4,8 @@ Luxury Garage:
 
 
 
-​🚀 Key Features
-​Product Showcase: A categorized catalog of modification parts including sport rims, body kits, spoilers, and exhaust systems.  
+​🚀 Key Features ​Product Showcase: 
+A categorized catalog of modification parts including sport rims, body kits, spoilers, and exhaust systems.  
 ​Custom Build Gallery: A dedicated "Builds" section featuring real-world examples of modified vehicles (e.g., Toyota Camry, BMW 5 Series) with detailed lists of installed modifications.  
 ​Inventory Management: Dynamic stock tracking ("In Stock" / "Sold Out" labels) and quick-stock adjustment tools for administrators.  
 ​Interactive Contact System: A built-in messaging platform that allows users to send inquiries about specific parts or custom builds directly to the shop.  
@@ -13,8 +13,8 @@ Luxury Garage:
 
 
 
-​🛠️ Technical Overview
-​Database Driven: Utilizes a relational database structure with tables for products, builds, users, and messages.  
+​🛠️ Technical Overview Database Driven: 
+Utilizes a relational database structure with tables for products, builds, users, and messages.  
 ​User Interface: A modern, dark-themed responsive design focused on high-quality visuals and ease of navigation.  
 ​Core Pages:
 ​Index.php: Secure login and registration.  
